@@ -4,7 +4,17 @@ The tool for hacking your way through JavaScript tech debt.
 
 ## Status
 
-Fleshing out the idea; no implementation done
+Archived. The idea was evaluated and found to not be worth pursuing as a traditional tool. See [Why not a tool?](#why-not-a-tool) below.
+
+## Why not a tool?
+
+A rule-based tool requires maintaining a knowledge graph of tool compatibility, upgrade ordering, and migration paths. This is unsustainable because:
+
+- **Every neglected project is unique.** Well-maintained projects are similar; poorly-maintained ones each have their own combination of outdated dependencies, non-standard configurations, and undocumented constraints. The long tail is enormous.
+- **The compatibility matrix is empirical, not documented.** Whether package A@v3 works with package B@v1.4 on Node 16 often isn't written down anywhere — it lives in GitHub issues, changelogs, and tribal knowledge. Any static tool is perpetually out of date.
+- **The hard work is reasoning, not automation.** Identifying upgrade order and fixing breaking changes requires understanding context that varies per project. That's not a problem a rule-based tool solves well.
+
+The orchestration scaffolding (safe restore points, commit-per-step, resumable runs) has genuine value, but that value doesn't justify maintaining the knowledge graph required to make the decisions inside it.
 
 ## Concept
 
